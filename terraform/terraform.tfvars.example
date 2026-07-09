@@ -1,0 +1,42 @@
+# Required: AWS region for deployment
+aws_region = "us-east-1"
+
+# Required: S3 bucket name (must be globally unique)
+# Consider adding your AWS account ID: "idira-discovery-<account-id>"
+s3_bucket_name = "my-idira-discovery-bucket"
+
+# Optional: prefix for AWS resource names (default is 'idira-scanner')
+# name_prefix = "idira-scanner"
+
+# -----------------------------------------------------------------------------
+# Idira Credentials (Optional)
+# -----------------------------------------------------------------------------
+# Set to true to have the Scanner service user automatically created in Idira.
+# If true, set idira_tenant_name and idira_username (any idira_password
+# value will be ignored as a random password is used instead)
+# If true, set env vars IDSEC_SERVICE_USER and IDSEC_SERVICE_TOKEN before running plan or apply
+# If false, set all 3 values below or leave empty and manually set later (in the Azure Key Vault)
+create_idira_service_user = true
+
+# These can be set here or manually in Key Vault after deployment.
+# idira_tenant_name="your-tenant"
+# idira_username="your-username@cyberark.cloud.99999"
+# idira_password="your-password" # pragma: allowlist secret
+
+# Optional: Glue job configuration
+# glue_job_name        = "idira-discovery"
+# timeout              = 120  # minutes (max 2880)
+# max_retries          = 0
+# schedule_expression  = "cron(0 10,22 * * ? *)"  # 10 AM and 10 PM UTC
+# enable_trigger       = true
+
+# Optional: SNS notifications for job failures
+# enable_sns_notifications = true
+# sns_email_endpoints      = ["ops@example.com", "security@example.com"]
+
+# Optional: Custom tags
+# tags = {
+#   Application = "Idira-Discovery"
+#   Environment = "Production"
+#   CostCenter  = "Security"
+# }

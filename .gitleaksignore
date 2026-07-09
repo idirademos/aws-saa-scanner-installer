@@ -1,0 +1,16 @@
+# Gitleaks ignore file
+# Format: one fingerprint per line
+# Get fingerprints by running: gitleaks detect --no-git
+
+# Ignore the detect-secrets baseline file (contains hashed values, not real secrets)
+.secrets.baseline:generic-api-key:137
+.secrets.baseline:generic-api-key:146
+.secrets.baseline:generic-api-key:153
+.secrets.baseline:generic-api-key:160
+.secrets.baseline:generic-api-key:167
+.secrets.baseline:generic-api-key:174
+.secrets.baseline:generic-api-key:181
+.secrets.baseline:generic-api-key:183
+
+# Terraform variable references (not actual secrets)
+terraform/main.tf:generic-api-key:81
