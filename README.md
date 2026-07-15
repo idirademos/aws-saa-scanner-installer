@@ -34,12 +34,15 @@ The CyberArk Discovery Scanner is an AWS Glue job that automatically discovers A
    - CloudWatch Events rules (if using SNS notifications)
    - SNS topics and subscriptions (if using SNS notifications)
 
-4. **CyberArk Credentials** - Service user account with:
-   - Tenant name
-   - Username
-   - Password
+4. **CyberArk Credentials** - Service user account credentials; account needs to have a role that has 'Role Management' and 'User Management' rights.
 
 ## Quick Start
+
+### Authenticate to AWS and Idira
+
+`aws login ....`, `aws sso login ....`
+
+Export environment variables IDSEC_SERVICE_USER and IDSEC_SERVICE_TOKEN with the Idira service user credentials.
 
 ### 1. Configure Variables
 
@@ -76,7 +79,7 @@ terraform apply
 
 Type `yes` when prompted to confirm the deployment.
 
-### 5. Configure Idira Credentials
+### 5. Configure Idira Credentials used by the Scanner
 
 If you didn't provide credentials via variables or set `create_idira_service_user` to true, update the secret manually:
 
